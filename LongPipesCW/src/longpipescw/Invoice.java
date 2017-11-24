@@ -85,11 +85,11 @@ public class Invoice extends javax.swing.JFrame {
         double overallCost = 0; // move this to the constructor 
         invoiceOrderText.setText("Order Breakdown\n\n");
         for(int i = 0; i < order.size(); i++){
-           overallCost += order.get(i).totalCost;
+           overallCost += order.get(i).totalCost();
            invoiceOrderText.setText(invoiceOrderText.getText() + "Order #" + (i+1) + "\n");
            invoiceOrderText.setText(invoiceOrderText.getText() + order.get(i).pipeDetails());
            invoiceOrderText.setText(invoiceOrderText.getText() + "Quantity: " + (int)order.get(i).quantity + "\n");
-           invoiceOrderText.setText(invoiceOrderText.getText() + "Total cost: £" + order.get(i).totalCost + "\n");
+           invoiceOrderText.setText(invoiceOrderText.getText() + "Total cost: £" + order.get(i).totalCost() + "\n");
            invoiceOrderText.setText(invoiceOrderText.getText() + "\n");
         }
         overallCost = (double) Math.round(overallCost * 100) / 100;
