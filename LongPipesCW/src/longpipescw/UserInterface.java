@@ -20,8 +20,8 @@ public class UserInterface extends javax.swing.JFrame {
     protected int gradeContent = 0;
     protected double quantityContent = 0;
     protected Boolean chemResistContent = false;
-    protected String colour1Content = "none";
-    protected String colour2Content = "none";
+    protected String colour1Content = "None";
+    protected String colour2Content = "None";
     protected Boolean innerInsulationContent = false;
     protected Boolean outterReinforcementContent = false;
     
@@ -62,7 +62,6 @@ public class UserInterface extends javax.swing.JFrame {
         reinforcementComboBox = new javax.swing.JComboBox<>();
         quantityLabel = new javax.swing.JLabel();
         quantityTextField = new javax.swing.JTextField();
-        jLabel10 = new javax.swing.JLabel();
         lengthTextField = new javax.swing.JTextField();
         cancelOrderButton = new javax.swing.JButton();
         resistanceLabel = new javax.swing.JLabel();
@@ -70,8 +69,6 @@ public class UserInterface extends javax.swing.JFrame {
         colour1ComboBox = new javax.swing.JComboBox<>();
         colour1Label = new javax.swing.JLabel();
         addToBasketButton = new javax.swing.JButton();
-        basket = new javax.swing.JScrollPane();
-        myBasket = new javax.swing.JList<>();
 
         popupMenu1.setLabel("popupMenu1");
 
@@ -85,7 +82,7 @@ public class UserInterface extends javax.swing.JFrame {
 
         diameterLabel.setText("Diameter (Inches):");
 
-        lengthLabel.setText("Length (meters):");
+        lengthLabel.setText("Length (Meters):");
 
         jLabel3.setText("Pipe Order System");
 
@@ -116,7 +113,7 @@ public class UserInterface extends javax.swing.JFrame {
 
         insulationLabel.setText("Insulation:");
 
-        colour2ComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "None:", "Blue", "Green", "Purple", "Yellow" }));
+        colour2ComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "None", "Blue", "Green", "Purple", "Yellow" }));
         colour2ComboBox.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 colour2ComboBoxActionPerformed(evt);
@@ -140,8 +137,6 @@ public class UserInterface extends javax.swing.JFrame {
                 quantityTextFieldActionPerformed(evt);
             }
         });
-
-        jLabel10.setText("Your Basket:");
 
         lengthTextField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -181,13 +176,6 @@ public class UserInterface extends javax.swing.JFrame {
             }
         });
 
-        myBasket.setModel(new javax.swing.AbstractListModel<String>() {
-            String[] strings = { "TEST" };
-            public int getSize() { return strings.length; }
-            public String getElementAt(int i) { return strings[i]; }
-        });
-        basket.setViewportView(myBasket);
-
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -195,101 +183,86 @@ public class UserInterface extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(25, 25, 25)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                        .addComponent(colour1ComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGroup(layout.createSequentialGroup()
-                            .addComponent(reinforcementLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGap(33, 33, 33)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                .addComponent(insulationComboBox, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(reinforcementComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                    .addComponent(jLabel3)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                         .addGroup(layout.createSequentialGroup()
-                            .addComponent(colour2Label, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGap(69, 69, 69)
-                            .addComponent(colour2ComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(colour2Label, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(pGradeLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(reinforcementLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(resistanceLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(lengthLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(diameterLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(insulationLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(colour1Label, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(quantityLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addGroup(layout.createSequentialGroup()
+                                    .addGap(2, 2, 2)
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                        .addComponent(colour1ComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                            .addComponent(insulationComboBox, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(reinforcementComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                .addGroup(layout.createSequentialGroup()
+                                    .addGap(1, 1, 1)
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                        .addComponent(colour2ComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(pGradeComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addGroup(layout.createSequentialGroup()
+                                    .addGap(2, 2, 2)
+                                    .addComponent(resistanceComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                    .addComponent(diameterTextField, javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(lengthTextField, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGroup(layout.createSequentialGroup()
+                                    .addGap(2, 2, 2)
+                                    .addComponent(quantityTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addComponent(addToBasketButton, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(layout.createSequentialGroup()
-                            .addComponent(pGradeLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGap(46, 46, 46)
-                            .addComponent(pGradeComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(resistanceLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(resistanceComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(quantityLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(56, 56, 56)
-                        .addComponent(quantityTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lengthLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(diameterLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(diameterTextField, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lengthTextField, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addComponent(jLabel3)
-                    .addComponent(insulationLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(colour1Label, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 26, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel10)
-                    .addComponent(basket, javax.swing.GroupLayout.PREFERRED_SIZE, 171, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(51, 51, 51))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(112, 112, 112)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addComponent(addToBasketButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(cancelOrderButton, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(completeOrderButton, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addComponent(cancelOrderButton)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(completeOrderButton, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap(27, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(14, 14, 14)
                 .addComponent(jLabel3)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addGroup(layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(diameterLabel)
-                            .addComponent(diameterTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(8, 8, 8)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(lengthLabel)
-                            .addComponent(lengthTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(pGradeComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(pGradeLabel))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(colour1Label)
-                            .addComponent(colour1ComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(colour2ComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(colour2Label))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(insulationComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(insulationLabel))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(reinforcementComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(reinforcementLabel))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(resistanceLabel)
-                            .addComponent(resistanceComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(31, 31, 31)
-                        .addComponent(jLabel10)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(basket)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(diameterLabel)
+                    .addComponent(diameterTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(8, 8, 8)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lengthLabel)
+                    .addComponent(lengthTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(pGradeComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(pGradeLabel))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(colour1Label)
+                    .addComponent(colour1ComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(colour2ComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(colour2Label))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(insulationComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(insulationLabel))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(reinforcementComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(reinforcementLabel))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(resistanceLabel)
+                    .addComponent(resistanceComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(quantityLabel)
@@ -357,7 +330,7 @@ public class UserInterface extends javax.swing.JFrame {
 
     private void colour2ComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_colour2ComboBoxActionPerformed
         if(colour2ComboBox.getSelectedItem() == "None"){
-            colour2Content = "none";
+            colour2Content = "None";
             colour2Label.setText("Colour 2: ");
         } else{
             colour2Label.setText("Colour 2: ✓");
@@ -403,9 +376,9 @@ public class UserInterface extends javax.swing.JFrame {
 
     private void lengthTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_lengthTextFieldActionPerformed
         if(!lengthTextField.getText().equals("")){
-            lengthLabel.setText("Length (meters): ✓");
+            lengthLabel.setText("Length (Meters): ✓");
         } else {
-            lengthLabel.setText("Length (meters): ");
+            lengthLabel.setText("Length (Meters): ");
         }
         try{
             lengthContent = Double.parseDouble(lengthTextField.getText());
@@ -472,7 +445,7 @@ public class UserInterface extends javax.swing.JFrame {
 
     private void colour1ComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_colour1ComboBoxActionPerformed
         if(colour1ComboBox.getSelectedItem() == "None"){
-            colour1Content = "none";
+            colour1Content = "None";
             colour1Label.setText("Colour 1: ");
         } else{
             colour1Label.setText("Colour 1: ✓");
@@ -483,21 +456,25 @@ public class UserInterface extends javax.swing.JFrame {
     private void addToBasketButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addToBasketButtonActionPerformed
         //I do not like having all those repeating variables v v ugly (but works)
         Pipe pipeObj;
-        if(gradeContent >= 1 &&  gradeContent <= 3 && colour1Content.equals("none")  && colour2Content.equals("none") && !innerInsulationContent && !outterReinforcementContent){
+        if(gradeContent >= 1 &&  gradeContent <= 3 && colour1Content.equals("None")  && colour2Content.equals("None") && !innerInsulationContent && !outterReinforcementContent){
             pipeObj = new Type1(diameterContent, lengthContent, gradeContent, 
                 chemResistContent);
             pipeObj.quantity = quantityContent;
             pipeObj.getPipeType();
             pipeObj.totalCost();
             order.add(pipeObj);
+            clearContent();
+            completeOrderButton.setEnabled(true);
             System.out.println("Type1 added to invoice");
-        } else if(gradeContent >= 2 &&  gradeContent <= 4 && colour2Content.equals("none") && !innerInsulationContent && !outterReinforcementContent){
+        } else if(gradeContent >= 2 && gradeContent <= 4 && colour2Content.equals("None") && !innerInsulationContent && !outterReinforcementContent){
             pipeObj = new Type2(diameterContent, lengthContent, gradeContent, 
                 chemResistContent, colour1Content);
             pipeObj.quantity = quantityContent;
             pipeObj.getPipeType();
             pipeObj.totalCost();
             order.add(pipeObj);
+            clearContent();
+            completeOrderButton.setEnabled(true);
             System.out.println("Type2 added to invoice");
         } else if(gradeContent >= 2 && !innerInsulationContent && !outterReinforcementContent){
             pipeObj = new Type3(diameterContent, lengthContent, gradeContent, 
@@ -506,6 +483,8 @@ public class UserInterface extends javax.swing.JFrame {
             pipeObj.getPipeType();
             pipeObj.totalCost();
             order.add(pipeObj);
+            clearContent();
+            completeOrderButton.setEnabled(true);
             System.out.println("Type3 added to invoice");
         } else if(gradeContent >= 2 &&  !outterReinforcementContent) {
             pipeObj = new Type4(diameterContent, lengthContent, gradeContent, 
@@ -515,6 +494,8 @@ public class UserInterface extends javax.swing.JFrame {
             pipeObj.getPipeType();
             pipeObj.totalCost();
             order.add(pipeObj);
+            clearContent();
+            completeOrderButton.setEnabled(true);
             System.out.println("Type4 added to invoice");
         } else if(gradeContent >= 2 && innerInsulationContent && outterReinforcementContent){
             pipeObj = new Type5(diameterContent, lengthContent, gradeContent, 
@@ -524,6 +505,8 @@ public class UserInterface extends javax.swing.JFrame {
             pipeObj.getPipeType();
             pipeObj.totalCost();
             order.add(pipeObj);
+            clearContent();
+            completeOrderButton.setEnabled(true);
             System.out.println("Type5 added to invoice");
         } else {
             //add error handling try catch
@@ -536,7 +519,6 @@ public class UserInterface extends javax.swing.JFrame {
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton addToBasketButton;
-    private javax.swing.JScrollPane basket;
     private javax.swing.JButton cancelOrderButton;
     private javax.swing.JComboBox<String> colour1ComboBox;
     private javax.swing.JLabel colour1Label;
@@ -547,11 +529,9 @@ public class UserInterface extends javax.swing.JFrame {
     private javax.swing.JTextField diameterTextField;
     private javax.swing.JComboBox<String> insulationComboBox;
     private javax.swing.JLabel insulationLabel;
-    private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel lengthLabel;
     private javax.swing.JTextField lengthTextField;
-    private javax.swing.JList<String> myBasket;
     private javax.swing.JComboBox<String> pGradeComboBox;
     private javax.swing.JLabel pGradeLabel;
     private java.awt.PopupMenu popupMenu1;
@@ -566,11 +546,27 @@ public class UserInterface extends javax.swing.JFrame {
         if(diameterContent != 0 && lengthContent != 0
                 && gradeContent != 0 && chemResistContent != false
                 && quantityContent != 0){
-            completeOrderButton.setEnabled(true);
             addToBasketButton.setEnabled(true);
         } else{
-            completeOrderButton.setEnabled(false);
             addToBasketButton.setEnabled(false);
         }
+    }
+    public void clearContent(){
+        diameterTextField.setText("");
+        diameterLabel.setText("Diameter (Inches): ");
+        lengthTextField.setText("");
+        lengthLabel.setText("Length (Meters): ");
+        pGradeComboBox.setSelectedIndex(0);
+        pGradeLabel.setText("Plastic grade: ");
+        quantityTextField.setText("1");
+        resistanceComboBox.setSelectedIndex(0);
+        colour1ComboBox.setSelectedIndex(0);
+        colour1Label.setText("Colour 1: ");
+        colour2ComboBox.setSelectedIndex(0);
+        colour2Label.setText("Colour 2: ");
+        insulationComboBox.setSelectedIndex(0);
+        insulationLabel.setText("Insulation: ");
+        reinforcementComboBox.setSelectedIndex(0);
+        reinforcementLabel.setText("Reinforcement: ");
     }
 }
