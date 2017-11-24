@@ -17,14 +17,13 @@ public class UserInterface extends javax.swing.JFrame {
     //move array list later
     protected ArrayList<Object> order = new ArrayList<Object>();
     
-    protected double diameterContent = -1;
-    protected double lengthContent = -1;
-    protected int gradeContent = -1;
-    protected double quantityContent = -1;
+    protected double diameterContent = 0;
+    protected double lengthContent = 0;
+    protected int gradeContent = 0;
+    protected double quantityContent = 0;
     protected Boolean chemResistContent = false;
-    protected String colour1Content = "-1";
-    protected String colour2Content = "-1";
-    protected String numOfColours = "-1";
+    protected String colour1Content = "none";
+    protected String colour2Content = "none";
     protected Boolean innerInsulationContent = false;
     protected Boolean outterReinforcementContent = false;
     
@@ -335,7 +334,6 @@ public class UserInterface extends javax.swing.JFrame {
                 JOptionPane.ERROR_MESSAGE);
             }
         
-       
         //testing
         System.out.println(diameterContent);
     }//GEN-LAST:event_diameterTextFieldActionPerformed
@@ -345,13 +343,12 @@ public class UserInterface extends javax.swing.JFrame {
         enableDisable();
          String tempGradeContent ;
         if(pGradeComboBox.getSelectedItem().equals("None")){
-            tempGradeContent = "-1";
+            tempGradeContent = "0";
             pGradeLabel.setText("Plastic grade: ");
         } else{
             pGradeLabel.setText("Plastic grade: ✓");
              tempGradeContent = (String)pGradeComboBox.getSelectedItem();
         }
-        
         
         gradeContent = Integer.parseInt(tempGradeContent);
         //testing
@@ -375,7 +372,7 @@ public class UserInterface extends javax.swing.JFrame {
     private void colour2ComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_colour2ComboBoxActionPerformed
         // TODO add your handling code here:
         if(colour2ComboBox.getSelectedItem() == "None"){
-            colour2Content = "-1";
+            colour2Content = "none";
             colour2Label.setText("Colour 2: ");
         } else{
             colour2Label.setText("Colour 2: ✓");
@@ -407,14 +404,14 @@ public class UserInterface extends javax.swing.JFrame {
         }
         
         try{
-        quantityContent = Integer.parseInt(quantityTextField.getText());
-        //validation
-        if (quantityContent < 1 || quantityContent >100){
-            JOptionPane.showMessageDialog(null,
-            "Oders must be of atleast 1 pipe and less than 100",
-            "Bad Quantity ",
-            JOptionPane.ERROR_MESSAGE);
-        }
+            quantityContent = Integer.parseInt(quantityTextField.getText());
+            //validation
+            if (quantityContent < 1 || quantityContent >100){
+                JOptionPane.showMessageDialog(null,
+                "Oders must be of atleast 1 pipe and less than 100",
+                "Bad Quantity ",
+                JOptionPane.ERROR_MESSAGE);
+            }
         }
         catch (NumberFormatException nfe) {
                 JOptionPane.showMessageDialog(null,
@@ -436,14 +433,14 @@ public class UserInterface extends javax.swing.JFrame {
         }
         
         try{
-        lengthContent = Double.parseDouble(lengthTextField.getText());
-        //validation
-        if (lengthContent < 0.1 || lengthContent >6.0){
-        JOptionPane.showMessageDialog(null,
-        "pipes must be longer than 10cm and shorter than 6m",
-        "Bad pipe length ",
-        JOptionPane.ERROR_MESSAGE);
-        }
+            lengthContent = Double.parseDouble(lengthTextField.getText());
+            //validation
+            if (lengthContent < 0.1 || lengthContent >6.0){
+            JOptionPane.showMessageDialog(null,
+            "pipes must be longer than 10cm and shorter than 6m",
+            "Bad pipe length ",
+            JOptionPane.ERROR_MESSAGE);
+            }
         }
         
         catch (NumberFormatException nfe) {
@@ -506,7 +503,7 @@ public class UserInterface extends javax.swing.JFrame {
     private void colour1ComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_colour1ComboBoxActionPerformed
         // TODO add your handling code here:
         if(colour1ComboBox.getSelectedItem() == "None"){
-            colour1Content = "-1";
+            colour1Content = "none";
             colour1Label.setText("Colour 1: ");
         } else{
             colour1Label.setText("Colour 1: ✓");
@@ -520,10 +517,10 @@ public class UserInterface extends javax.swing.JFrame {
         // ADD VALIDATION
         
         Pipe pipeObj;
-        if(colour1Content.equals("-1")  && colour2Content.equals("-1") && !innerInsulationContent && !outterReinforcementContent){
+        if(colour1Content.equals("none")  && colour2Content.equals("none") && !innerInsulationContent && !outterReinforcementContent){
             pipeObj = new Type1(diameterContent, lengthContent, gradeContent, 
                 chemResistContent);
-        } else if(colour2Content.equals("-1") && !innerInsulationContent && !outterReinforcementContent){
+        } else if(colour2Content.equals("none") && !innerInsulationContent && !outterReinforcementContent){
             pipeObj = new Type2(diameterContent, lengthContent, gradeContent, 
                 chemResistContent, colour1Content);
         } else if(!innerInsulationContent && !outterReinforcementContent){
