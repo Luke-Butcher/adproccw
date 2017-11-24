@@ -65,8 +65,4 @@ public class UserInterfaceContent extends UserInterface {
     {
         return outterReinforcementContent;
     }
-    
-    public void typeSelector(){
-        
-    }
 }

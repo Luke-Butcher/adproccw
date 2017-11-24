@@ -10,10 +10,12 @@ package longpipescw;
  * @author conorfarrell
  */
 public class Type4 extends Type3 {
+    private Boolean innerInsulation;
     public Type4(double lengthOfPipe, double diameterOfPipe, int grade, Boolean chemResist, String colour1, String colour2, Boolean innerInsulation){
         super(lengthOfPipe, diameterOfPipe, grade, chemResist, colour1, colour2);
+        super.pipeDetails();
         this.innerInsulation = innerInsulation;
-        super.pipeType = 4;
+        System.out.println(Boolean.toString(innerInsulation));
         super.additionalCost += baseCost * 0.13;
     }
     public void setInnerInsulation(Boolean innerInsulation)
@@ -24,5 +26,10 @@ public class Type4 extends Type3 {
     public Boolean getInnerInsulation()
     {
         return innerInsulation;
+    }
+    
+    public String pipeDetails(){
+        super.pipeDetails += "Inner Insulation: " + innerInsulation + "\n";
+        return super.pipeDetails;
     }
 }

@@ -388,7 +388,7 @@ public class UserInterface extends javax.swing.JFrame {
     private void reinforcementComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_reinforcementComboBoxActionPerformed
        
         if(reinforcementComboBox.getSelectedItem() == "No:"){
-             outterReinforcementContent = false;
+            outterReinforcementContent = false;
             reinforcementLabel.setText("Reinforcement: ");
         } else if(reinforcementComboBox.getSelectedItem() == "Yes"){
             outterReinforcementContent = true;
@@ -520,93 +520,33 @@ public class UserInterface extends javax.swing.JFrame {
         // ADD VALIDATION
         
         Pipe pipeObj;
-        if(colour1Content.equals("-1")  && colour2Content.equals("-1") && innerInsulationContent == false && outterReinforcementContent == false){
+        if(colour1Content.equals("-1")  && colour2Content.equals("-1") && !innerInsulationContent && !outterReinforcementContent){
             pipeObj = new Type1(diameterContent, lengthContent, gradeContent, 
                 chemResistContent);
-        } else if(colour2Content.equals("-1") && innerInsulationContent == false && outterReinforcementContent == false){
+        } else if(colour2Content.equals("-1") && !innerInsulationContent && !outterReinforcementContent){
             pipeObj = new Type2(diameterContent, lengthContent, gradeContent, 
                 chemResistContent, colour1Content);
-        } else if(innerInsulationContent == false && outterReinforcementContent == false){
+        } else if(!innerInsulationContent && !outterReinforcementContent){
             pipeObj = new Type3(diameterContent, lengthContent, gradeContent, 
                 chemResistContent, colour1Content, colour2Content);
             System.out.println(pipeObj.totalCost());
-        } else if(outterReinforcementContent == false) {
+        } else if(!outterReinforcementContent) {
             pipeObj = new Type4(diameterContent, lengthContent, gradeContent, 
                 chemResistContent, colour1Content, colour2Content, 
                 innerInsulationContent);
-        } else {
+        } else{
             pipeObj = new Type5(diameterContent, lengthContent, gradeContent, 
                 chemResistContent, colour1Content, colour2Content, 
                 innerInsulationContent, outterReinforcementContent);
+                // if(gradeContent >= 3 && innerInsulationContent && outterReinforcementContent) 
         }
+        
         pipeObj.quantity = quantityContent;
         pipeObj.getPipeType();
         pipeObj.totalCost();
-        
         order.add(pipeObj);
     }//GEN-LAST:event_addToBasketButtonActionPerformed
-   //*******************REMOVED NULLS*********** 
-//     private void addToBasketButtonActionPerformed(java.awt.event.ActionEvent evt) {                                                  
-//        // ADD VALIDATION
-//        
-//        Pipe pipeObj;
-//        if(colour1Content.equals("-1") && colour2Content.equals("-1") && innerInsulationContent == false && outterReinforcementContent == false){
-//            pipeObj = new Type1(diameterContent, lengthContent, gradeContent, 
-//                chemResistContent);
-//        } else if(colour2Content.equals("-1") && innerInsulationContent == false && outterReinforcementContent == false){
-//            pipeObj = new Type2(diameterContent, lengthContent, gradeContent, 
-//                chemResistContent, colour1Content);
-//        } else if(innerInsulationContent == false && outterReinforcementContent == false){
-//            pipeObj = new Type3(diameterContent, lengthContent, gradeContent, 
-//                chemResistContent, colour1Content, colour2Content);
-//            System.out.println(pipeObj.totalCost());
-//        } else if(outterReinforcementContent == false) {
-//            pipeObj = new Type4(diameterContent, lengthContent, gradeContent, 
-//                chemResistContent, colour1Content, colour2Content, 
-//                innerInsulationContent);
-//        } else {
-//            pipeObj = new Type5(diameterContent, lengthContent, gradeContent, 
-//                chemResistContent, colour1Content, colour2Content, 
-//                innerInsulationContent, outterReinforcementContent);
-//        }
-//        pipeObj.quantity = quantityContent;
-//        pipeObj.getPipeType();
-//        pipeObj.totalCost();
-//        
-//        order.add(pipeObj);
-//    }                       
-    //******************ORIGINAL****************
-//    private void addToBasketButtonActionPerformed(java.awt.event.ActionEvent evt) {                                                  
-//        // ADD VALIDATION
-//        
-//        Pipe pipeObj;
-//        if(colour1Content == null && colour2Content == null && innerInsulationContent == null && outterReinforcementContent == null){
-//            pipeObj = new Type1(diameterContent, lengthContent, gradeContent, 
-//                chemResistContent);
-//            //conso
-//        } else if(colour2Content == null && innerInsulationContent == null && outterReinforcementContent == null){
-//            pipeObj = new Type2(diameterContent, lengthContent, gradeContent, 
-//                chemResistContent, colour1Content);
-//        } else if(innerInsulationContent == null && outterReinforcementContent == null){
-//            pipeObj = new Type3(diameterContent, lengthContent, gradeContent, 
-//                chemResistContent, colour1Content, colour2Content);
-//            System.out.println(pipeObj.totalCost());
-//        } else if(outterReinforcementContent == null) {
-//            pipeObj = new Type4(diameterContent, lengthContent, gradeContent, 
-//                chemResistContent, colour1Content, colour2Content, 
-//                innerInsulationContent);
-//        } else {
-//            pipeObj = new Type5(diameterContent, lengthContent, gradeContent, 
-//                chemResistContent, colour1Content, colour2Content, 
-//                innerInsulationContent, outterReinforcementContent);
-//        }
-//        pipeObj.quantity = quantityContent;
-//        pipeObj.getPipeType();
-//        pipeObj.totalCost();
-//        
-//        order.add(pipeObj);
-//    }                                          
-    /**
+     /**
      * @param args the command line arguments
      */
     

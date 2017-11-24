@@ -16,23 +16,7 @@ abstract public class Pipe {
     protected double baseCost;
     protected double additionalCost;
     protected double totalCost;
-    
-    //These variables are here for the time being. I have taken them from the sub
-    //classes and put them in order for us to access the variables for each object
-    //I feel that although each subclass may not use the variable it is better
-    //because it means we dont have duplicated variables in our subclass 1 and 2.
-    //This means we only have one set of variables if they are not initialised then
-    //they are set to null!
-    
-    // The issue here is that one of the rules of
-    //inheritance is that you dont inherit anything that is not used
-    // there must be a better way
-    protected String colour1;
-    protected String colour2;
-    protected Boolean innerInsulation;
-    protected Boolean outterReinforcement;
-    //end testing
-    
+    protected String pipeDetails;
     protected int pipeType;
     protected int grade;
     protected double quantity;
@@ -116,6 +100,7 @@ abstract public class Pipe {
         return chemResist;
     }
     
+    //calculateVolumeOfPipe
     public double getVolumeOfPipe(){
         //conversion of meters to inches
         double lengthPipeInches = lengthOfPipe / 0.0254;
@@ -153,6 +138,13 @@ abstract public class Pipe {
         return totalCost;
     }
     
+    public String pipeDetails(){
+        pipeDetails = "Length of pipe: " + Double.toString(lengthOfPipe) + "(meters)\n"
+                + "Diameter of pipe: " + Double.toString(diameterOfPipe) + "(meters)\n"
+                + "Grade: " + Integer.toString(grade) + "\n"
+                + "Chemical Resistance: " + Boolean.toString(chemResist) + "\n";
+        return pipeDetails;
+    }
         
    
 }

@@ -10,12 +10,13 @@ package longpipescw;
  * @author conorfarrell
  */
 public class Type3 extends Pipe {
+    private String colour1;
+    private String colour2;
     public Type3(double lengthOfPipe, double diameterOfPipe, int grade, Boolean chemResist, String colour1, String colour2){
         super(lengthOfPipe, diameterOfPipe, grade, chemResist);
-        super.pipeType = 3;
+        super.pipeDetails();
         this.colour1 = colour1;
         this.colour2 = colour2;
-        super.additionalCost += baseCost * 0.12;
         super.additionalCost += baseCost * 0.16;
     }
     public void setColour1(String colour1)
@@ -36,5 +37,10 @@ public class Type3 extends Pipe {
     public String getColour2()
     {
         return colour2;
+    }
+    
+    public String pipeDetails(){
+        super.pipeDetails += "Colour 1: " + colour1 + "\nColour 2: "+ colour2 + "\n";
+        return super.pipeDetails;
     }
 }
