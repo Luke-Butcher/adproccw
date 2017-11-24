@@ -15,7 +15,6 @@ public class Type4 extends Type3 {
         super(lengthOfPipe, diameterOfPipe, grade, chemResist, colour1, colour2);
         super.pipeDetails();
         this.innerInsulation = innerInsulation;
-        System.out.println(Boolean.toString(innerInsulation));
         super.additionalCost += baseCost * 0.13;
     }
     public void setInnerInsulation(Boolean innerInsulation)
