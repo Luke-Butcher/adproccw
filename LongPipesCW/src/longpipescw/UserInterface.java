@@ -307,7 +307,6 @@ public class UserInterface extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void diameterTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_diameterTextFieldActionPerformed
-        enableDisable();
         if(!diameterTextField.getText().equals("")){
             diameterLabel.setText("Diameter (inches): ✓");
         } else{
@@ -329,10 +328,10 @@ public class UserInterface extends javax.swing.JFrame {
                 "Bad input ",
                 JOptionPane.ERROR_MESSAGE);
         }
+        enableDisable();
     }//GEN-LAST:event_diameterTextFieldActionPerformed
 
     private void pGradeComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pGradeComboBoxActionPerformed
-        enableDisable();
         String tempGradeContent ;
         if(pGradeComboBox.getSelectedItem().equals("None")){
             tempGradeContent = "0";
@@ -342,6 +341,7 @@ public class UserInterface extends javax.swing.JFrame {
              tempGradeContent = (String)pGradeComboBox.getSelectedItem();
         }
         gradeContent = Integer.parseInt(tempGradeContent);
+        enableDisable();
     }//GEN-LAST:event_pGradeComboBoxActionPerformed
 
     private void insulationComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_insulationComboBoxActionPerformed
@@ -376,7 +376,6 @@ public class UserInterface extends javax.swing.JFrame {
     }//GEN-LAST:event_reinforcementComboBoxActionPerformed
 
     private void quantityTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_quantityTextFieldActionPerformed
-        // TODO add your handling code here:
         if(!quantityTextField.getText().equals("")){
             quantityLabel.setText("Quantity: ✓");
         } else{
@@ -399,10 +398,10 @@ public class UserInterface extends javax.swing.JFrame {
                 "Bad input ",
                 JOptionPane.ERROR_MESSAGE);
         }
+        enableDisable();
     }//GEN-LAST:event_quantityTextFieldActionPerformed
 
     private void lengthTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_lengthTextFieldActionPerformed
-        enableDisable();
         if(!lengthTextField.getText().equals("")){
             lengthLabel.setText("Length (meters): ✓");
         } else {
@@ -424,6 +423,7 @@ public class UserInterface extends javax.swing.JFrame {
                 "Bad input ",
                 JOptionPane.ERROR_MESSAGE);
         }
+        enableDisable();
     }//GEN-LAST:event_lengthTextFieldActionPerformed
 
     private void completeOrderButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_completeOrderButtonActionPerformed
@@ -562,13 +562,10 @@ public class UserInterface extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> resistanceComboBox;
     private javax.swing.JLabel resistanceLabel;
     // End of variables declaration//GEN-END:variables
-//    public void actionMethod(){
-//        diameterTextField.setFocusable(true);
-//    }
-   
     public void enableDisable(){
-        if(!diameterTextField.getText().equals("") && !lengthTextField.getText().equals("")
-                && pGradeComboBox.getSelectedItem() != "Choose:" && resistanceComboBox.getSelectedItem() != "Choose:"){
+        if(diameterContent != 0 && lengthContent != 0
+                && gradeContent != 0 && chemResistContent != false
+                && quantityContent != 0){
             completeOrderButton.setEnabled(true);
             addToBasketButton.setEnabled(true);
         } else{
