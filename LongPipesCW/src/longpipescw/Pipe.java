@@ -60,6 +60,10 @@ abstract public class Pipe {
         return diameterOfPipe;
     }
     
+    public double getQuantity(){
+        return quantity;
+    }
+    
     //getter for pipeType
    
     public int getPipeType()
