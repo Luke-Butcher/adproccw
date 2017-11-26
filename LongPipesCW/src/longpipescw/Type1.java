@@ -12,6 +12,6 @@ package longpipescw;
 public class Type1 extends Pipe {
     public Type1(double diameterOfPipe, double lengthOfPipe,int grade, Boolean chemResist){
         super(diameterOfPipe, lengthOfPipe, grade, chemResist);
-        super.pipeType = 1;
+        super.pipeDetails();
     }
 }

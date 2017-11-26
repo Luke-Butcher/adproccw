@@ -51,11 +51,6 @@ public class UserInterfaceContent extends UserInterface {
         return colour2Content;
     }
     
-    public String getNumOfColours()
-    {
-        return numOfColours;
-    }
-    
     public Boolean getInnerInsulationContent()
     {
         return innerInsulationContent;
@@ -64,9 +59,5 @@ public class UserInterfaceContent extends UserInterface {
     public Boolean getOutterReinforcement()
     {
         return outterReinforcementContent;
-    }
-    
-    public void typeSelector(){
-        
     }
 }
