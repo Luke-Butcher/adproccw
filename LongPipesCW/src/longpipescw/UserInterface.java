@@ -562,11 +562,15 @@ public class UserInterface extends javax.swing.JFrame {
         resistanceComboBox.setSelectedIndex(0);
         colour1ComboBox.setSelectedIndex(0);
         colour1Label.setText("Colour 1: ");
+        colour1Content = "None";
         colour2ComboBox.setSelectedIndex(0);
         colour2Label.setText("Colour 2: ");
+        colour2Content = "None";
         insulationComboBox.setSelectedIndex(0);
         insulationLabel.setText("Insulation: ");
+        innerInsulationContent = false;
         reinforcementComboBox.setSelectedIndex(0);
         reinforcementLabel.setText("Reinforcement: ");
+        outterReinforcementContent = false;
     }
 }

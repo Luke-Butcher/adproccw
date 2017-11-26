@@ -143,8 +143,8 @@ abstract public class Pipe {
     }
     
     public String pipeDetails(){
-        pipeDetails = "Length of pipe: " + Double.toString(lengthOfPipe) + " (meters)\n"
-                + "Diameter of pipe: " + Double.toString(diameterOfPipe) + " (meters)\n"
+        pipeDetails = "Diameter of pipe: " + Double.toString(diameterOfPipe) + " (Inches)\n"
+                + "Length of pipe: " + Double.toString(lengthOfPipe) + " (Meters)\n"
                 + "Grade: " + Integer.toString(grade) + "\n"
                 + "Chemical Resistance: " + Boolean.toString(chemResist) + "\n";
         return pipeDetails;
