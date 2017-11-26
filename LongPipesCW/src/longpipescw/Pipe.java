@@ -105,7 +105,7 @@ abstract public class Pipe {
     }
     
     //calculateVolumeOfPipe
-    public double getVolumeOfPipe(){
+    public double calculateVolumeOfPipe(){
         //conversion of meters to inches
         double lengthPipeInches = lengthOfPipe / 0.0254;
         
@@ -132,7 +132,7 @@ abstract public class Pipe {
     }
     
     public double baseCost(){
-        baseCost = getVolumeOfPipe() * getCostPerQubicInch();
+        baseCost = calculateVolumeOfPipe() * getCostPerQubicInch();
         return baseCost;
     }
     
