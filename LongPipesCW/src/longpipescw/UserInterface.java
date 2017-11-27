@@ -5,8 +5,9 @@
  */
 package longpipescw;
 
-import java.awt.event.FocusEvent;
+import java.awt.event.KeyEvent;
 import java.awt.event.FocusListener;
+import java.text.DecimalFormat;
 import java.util.*;
 import javax.swing.*;
 
@@ -26,6 +27,8 @@ public class UserInterface extends javax.swing.JFrame {
     protected String colour2Content = "None";
     protected Boolean innerInsulationContent = false;
     protected Boolean outerReinforcementContent = false;
+    protected Boolean enterPressed = false;
+    private DecimalFormat df = new DecimalFormat("###.##");
     /**
      * Creates new form NewJFrame
      */
@@ -296,6 +299,11 @@ public class UserInterface extends javax.swing.JFrame {
         try {
             //convert our string to a double
             diameterContent = Double.parseDouble(diameterTextField.getText());
+            
+            diameterContent = Double.parseDouble(df.format(diameterContent));
+            diameterTextField.setText(Double.toString(diameterContent));
+            
+            lengthTextField.requestFocus();
             //if outside of our scope then display another error message
             if (diameterContent < 0.2 || diameterContent > 6) {
                 diameterTextField.setText("");
@@ -333,10 +341,10 @@ public class UserInterface extends javax.swing.JFrame {
         }
         //convert our string to a double
         gradeContent = Integer.parseInt(tempGradeContent);
-        
         //Complete order and add to basket are not activated or visible unless
         //all the specified statments are true in the enableDisable method below
         AddToBasketButtonOnOff();
+        //colour1ComboBox.requestFocusInWindow();
     }//GEN-LAST:event_pGradeComboBoxActionPerformed
                                            
 
@@ -416,6 +424,9 @@ public class UserInterface extends javax.swing.JFrame {
         
         try {
             lengthContent = Double.parseDouble(lengthTextField.getText());
+            lengthContent = Double.parseDouble(df.format(lengthContent));
+            lengthTextField.setText(Double.toString(lengthContent));
+            pGradeComboBox.requestFocusInWindow();
             //validation
             if (lengthContent < 0.1 || lengthContent > 6.0) {
                 lengthTextField.setText("");
@@ -482,6 +493,7 @@ public class UserInterface extends javax.swing.JFrame {
         } else if (resistanceComboBox.getSelectedItem() == "Yes") {
             chemResistContent = true;
             resistanceLabel.setText("Chemical Resistance: ✓");
+            quantityTextField.requestFocus();
         }
         
         //Complete order and add to basket are not activated or visible unless
@@ -498,6 +510,7 @@ public class UserInterface extends javax.swing.JFrame {
             colour1Label.setText("Colour 1: ✓");
         }
         colour1Content = (String) colour1ComboBox.getSelectedItem();
+        
         AddToBasketButtonOnOff();
     }//GEN-LAST:event_colour1ComboBoxActionPerformed
 
@@ -643,7 +656,10 @@ public class UserInterface extends javax.swing.JFrame {
                     "Bad pipe ",
                     JOptionPane.WARNING_MESSAGE);
         } else {
-            System.out.println("how did i get here?");//Need a better output here
+            JOptionPane.showMessageDialog(null,
+                    "Please restart the application and start again",
+                    "Application failure",
+                    JOptionPane.ERROR_MESSAGE);
         }
     }
 

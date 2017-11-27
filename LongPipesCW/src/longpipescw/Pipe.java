@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 package longpipescw;
-
+import java.text.DecimalFormat;
 /**
  *
  * @author conorfarrell
@@ -22,6 +22,8 @@ abstract public class Pipe {
     protected double quantity;
     protected double costPerQubicInch;
     protected Boolean chemResist;
+    private DecimalFormat df = new DecimalFormat("###.##");
+    
     
     //super class with parameters that each sub class all have in common
     public Pipe(double lengthOfPipe, double diameterOfPipe, int grade, Boolean chemResist){
@@ -148,7 +150,7 @@ abstract public class Pipe {
     public double totalCost(){
         double calc = (baseCost + additionalCost) * quantity;
         //rounds to two decimal places
-        totalCost = (double) Math.round(calc * 100) / 100;
+        totalCost = Double.parseDouble(df.format(calc));
         return totalCost;
     }
     
