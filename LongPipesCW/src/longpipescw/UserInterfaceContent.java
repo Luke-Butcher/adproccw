@@ -56,8 +56,8 @@ public class UserInterfaceContent extends UserInterface {
         return innerInsulationContent;
     }
     
-    public Boolean getOutterReinforcement()
+    public Boolean getOuterReinforcement()
     {
-        return outterReinforcementContent;
+        return outerReinforcementContent;
     }
 }

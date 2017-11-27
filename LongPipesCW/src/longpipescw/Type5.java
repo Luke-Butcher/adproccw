@@ -10,25 +10,25 @@ package longpipescw;
  * @author conorfarrell
  */
 public class Type5 extends Type4 {
-    private Boolean outterReinforcement;
-    public Type5(double lengthOfPipe, double diameterOfPipe, int grade, Boolean chemResist, String colour1, String colour2, Boolean innerInsulation, Boolean outterReinforcement){
+    private Boolean outerReinforcement;
+    public Type5(double lengthOfPipe, double diameterOfPipe, int grade, Boolean chemResist, String colour1, String colour2, Boolean innerInsulation, Boolean outerReinforcement){
         super(lengthOfPipe, diameterOfPipe, grade, chemResist, colour1, colour2, innerInsulation);
         super.pipeDetails();
-        this.outterReinforcement = outterReinforcement;
+        this.outerReinforcement = outerReinforcement;
         super.additionalCost += baseCost * 0.17;
     }
-    public void setOutterReinforcement(Boolean outterReinforcement)
+    public void setOuterReinforcement(Boolean outterReinforcement)
     {
-        this.outterReinforcement = outterReinforcement;
+        this.outerReinforcement = outterReinforcement;
     }
    
-    public Boolean getOutterReinforcement()
+    public Boolean getOuterReinforcement()
     {
-        return outterReinforcement;
+        return outerReinforcement;
     }
     
     public String pipeDetails(){
-        super.pipeDetails += "Outer Reinforcement: " + outterReinforcement + "\n";
+        super.pipeDetails += "Outer Reinforcement: " + outerReinforcement + "\n";
         return super.pipeDetails;
     }
 }

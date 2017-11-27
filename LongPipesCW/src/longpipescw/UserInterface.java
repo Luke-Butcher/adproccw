@@ -23,7 +23,7 @@ public class UserInterface extends javax.swing.JFrame {
     protected String colour1Content = "None";
     protected String colour2Content = "None";
     protected Boolean innerInsulationContent = false;
-    protected Boolean outterReinforcementContent = false;
+    protected Boolean outerReinforcementContent = false;
     
     /**
      * Creates new form NewJFrame
@@ -281,9 +281,9 @@ public class UserInterface extends javax.swing.JFrame {
 
     private void diameterTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_diameterTextFieldActionPerformed
         if(!diameterTextField.getText().equals("")){
-            diameterLabel.setText("Diameter (inches): ✓");
+            diameterLabel.setText("Diameter (Inches): ✓");
         } else{
-            diameterLabel.setText("Diameter (inches): ");
+            diameterLabel.setText("Diameter (Inches): ");
         }
        
         try {
@@ -340,10 +340,10 @@ public class UserInterface extends javax.swing.JFrame {
 
     private void reinforcementComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_reinforcementComboBoxActionPerformed
         if(reinforcementComboBox.getSelectedItem() == "No:"){
-            outterReinforcementContent = false;
+            outerReinforcementContent = false;
             reinforcementLabel.setText("Reinforcement: ");
         } else if(reinforcementComboBox.getSelectedItem() == "Yes"){
-            outterReinforcementContent = true;
+            outerReinforcementContent = true;
             reinforcementLabel.setText("Reinforcement: ✓");
         }
     }//GEN-LAST:event_reinforcementComboBoxActionPerformed
@@ -456,7 +456,7 @@ public class UserInterface extends javax.swing.JFrame {
     private void addToBasketButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addToBasketButtonActionPerformed
         //I do not like having all those repeating variables v v ugly (but works)
         Pipe pipeObj;
-        if(gradeContent >= 1 &&  gradeContent <= 3 && colour1Content.equals("None")  && colour2Content.equals("None") && !innerInsulationContent && !outterReinforcementContent){
+        if(gradeContent >= 1 &&  gradeContent <= 3 && colour1Content.equals("None")  && colour2Content.equals("None") && !innerInsulationContent && !outerReinforcementContent){
             pipeObj = new Type1(diameterContent, lengthContent, gradeContent, 
                 chemResistContent);
             pipeObj.quantity = quantityContent;
@@ -466,7 +466,7 @@ public class UserInterface extends javax.swing.JFrame {
             clearContent();
             completeOrderButton.setEnabled(true);
             System.out.println("Type1 added to invoice");
-        } else if(gradeContent >= 2 && gradeContent <= 4 && colour2Content.equals("None") && !innerInsulationContent && !outterReinforcementContent){
+        } else if(gradeContent >= 2 && gradeContent <= 4 && colour2Content.equals("None") && !innerInsulationContent && !outerReinforcementContent){
             pipeObj = new Type2(diameterContent, lengthContent, gradeContent, 
                 chemResistContent, colour1Content);
             pipeObj.quantity = quantityContent;
@@ -476,7 +476,7 @@ public class UserInterface extends javax.swing.JFrame {
             clearContent();
             completeOrderButton.setEnabled(true);
             System.out.println("Type2 added to invoice");
-        } else if(gradeContent >= 2 && !innerInsulationContent && !outterReinforcementContent){
+        } else if(gradeContent >= 2 && !innerInsulationContent && !outerReinforcementContent){
             pipeObj = new Type3(diameterContent, lengthContent, gradeContent, 
                 chemResistContent, colour1Content, colour2Content);
             pipeObj.quantity = quantityContent;
@@ -486,7 +486,7 @@ public class UserInterface extends javax.swing.JFrame {
             clearContent();
             completeOrderButton.setEnabled(true);
             System.out.println("Type3 added to invoice");
-        } else if(gradeContent >= 2 &&  !outterReinforcementContent) {
+        } else if(gradeContent >= 2 &&  !outerReinforcementContent) {
             pipeObj = new Type4(diameterContent, lengthContent, gradeContent, 
                 chemResistContent, colour1Content, colour2Content, 
                 innerInsulationContent);
@@ -497,10 +497,10 @@ public class UserInterface extends javax.swing.JFrame {
             clearContent();
             completeOrderButton.setEnabled(true);
             System.out.println("Type4 added to invoice");
-        } else if(gradeContent >= 2 && innerInsulationContent && outterReinforcementContent){
+        } else if(gradeContent >= 2 && innerInsulationContent && outerReinforcementContent){
             pipeObj = new Type5(diameterContent, lengthContent, gradeContent, 
                 chemResistContent, colour1Content, colour2Content, 
-                innerInsulationContent, outterReinforcementContent);
+                innerInsulationContent, outerReinforcementContent);
             pipeObj.quantity = quantityContent;
             pipeObj.getPipeType();
             pipeObj.totalCost();
@@ -571,6 +571,6 @@ public class UserInterface extends javax.swing.JFrame {
         innerInsulationContent = false;
         reinforcementComboBox.setSelectedIndex(0);
         reinforcementLabel.setText("Reinforcement: ");
-        outterReinforcementContent = false;
+        outerReinforcementContent = false;
     }
 }
