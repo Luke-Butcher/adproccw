@@ -301,7 +301,7 @@ public class UserInterface extends javax.swing.JFrame {
                 diameterTextField.setText("");
                 diameterLabel.setText("Diameter (Inches): ");
                 JOptionPane.showMessageDialog(null,
-                        "Oders must be of atleast 0.2' pipe and less than 6'",
+                        "Orders must be of atleast 0.2' pipe and at most 6'",
                         "Bad Diameter ",
                         JOptionPane.ERROR_MESSAGE);
             }
@@ -390,7 +390,7 @@ public class UserInterface extends javax.swing.JFrame {
             if (quantityContent < 1 || quantityContent > 100) {
                 quantityTextField.setText("1");
                 JOptionPane.showMessageDialog(null,
-                        "Oders must be of atleast 1 pipe and less than 100",
+                        "Orders must be of atleast 1 pipe and at most 100",
                         "Bad Quantity ",
                         JOptionPane.ERROR_MESSAGE);
             }
@@ -421,7 +421,7 @@ public class UserInterface extends javax.swing.JFrame {
                 lengthTextField.setText("");
                 lengthLabel.setText("Length (Meters): ");
                 JOptionPane.showMessageDialog(null,
-                        "pipes must be longer than 10cm and shorter than 6m",
+                        "pipes must be atleast 10cm and no more than 6m in length",
                         "Bad pipe length ",
                         JOptionPane.ERROR_MESSAGE);
             }
@@ -621,14 +621,14 @@ public class UserInterface extends javax.swing.JFrame {
                     JOptionPane.WARNING_MESSAGE);
         } else if (colour1Content.equals("None")) {
             JOptionPane.showMessageDialog(null,
-                    "Please select the 1st coulour  ",
+                    "Please select the 1st colour  ",
                     "Bad colour ",
                     JOptionPane.WARNING_MESSAGE);
 
         } else if (colour1Content.equals(
                 "None") && !colour2Content.equals("None")) {
             JOptionPane.showMessageDialog(null,
-                    "Please select the 1st coulour  ",
+                    "Please select the 1st colour  ",
                     "Bad colour ",
                     JOptionPane.WARNING_MESSAGE);
         } else if (colour2Content.equals(
@@ -643,7 +643,7 @@ public class UserInterface extends javax.swing.JFrame {
                     "Bad pipe ",
                     JOptionPane.WARNING_MESSAGE);
         } else {
-            System.out.println("how did i get here?");
+            System.out.println("how did i get here?");//Need a better output here
         }
     }
 
@@ -655,11 +655,11 @@ public class UserInterface extends javax.swing.JFrame {
             addToBasketButton.setEnabled(false);
         }
     }
+    
     //Clear content fucntionality sets all items to their initial states
     //Quantity and chem resist are not reset because they are going to always 
     //be added to or kept the same. Note: this is done to let a user understand
     // their order has been added
-
     public void clearContent() {
         diameterTextField.setText("");
         diameterLabel.setText("Diameter (Inches): ");
@@ -683,69 +683,3 @@ public class UserInterface extends javax.swing.JFrame {
         outerReinforcementContent = false;
     }
 }
-
-//***original add to basket button
-//        //I do not like having all those repeating variables v v ugly (but works)
-//        Pipe pipeObj;
-//        if(gradeContent >= 1 &&  gradeContent <= 3 && colour1Content.equals("None")  && colour2Content.equals("None") && !innerInsulationContent && !outterReinforcementContent){
-//            pipeObj = new Type1(diameterContent, lengthContent, gradeContent, 
-//                chemResistContent);
-//            pipeObj.quantity = quantityContent;
-//            pipeObj.getPipeType();
-//            pipeObj.totalCost();
-//            order.add(pipeObj);
-//            clearContent();
-//            completeOrderButton.setEnabled(true);
-//            System.out.println("Type1 added to invoice");
-//        } else if(gradeContent >= 2 && gradeContent <= 4 && colour2Content.equals("None") && !innerInsulationContent && !outterReinforcementContent){
-//            pipeObj = new Type2(diameterContent, lengthContent, gradeContent, 
-//                chemResistContent, colour1Content);
-//            pipeObj.quantity = quantityContent;
-//            pipeObj.getPipeType();
-//            pipeObj.totalCost();
-//            order.add(pipeObj);
-//            clearContent();
-//            completeOrderButton.setEnabled(true);
-//            System.out.println("Type2 added to invoice");
-//        } else if(gradeContent >= 2 && !innerInsulationContent && !outterReinforcementContent){
-//            pipeObj = new Type3(diameterContent, lengthContent, gradeContent, 
-//                chemResistContent, colour1Content, colour2Content);
-//            pipeObj.quantity = quantityContent;
-//            pipeObj.getPipeType();
-//            pipeObj.totalCost();
-//            order.add(pipeObj);
-//            clearContent();
-//            completeOrderButton.setEnabled(true);
-//            System.out.println("Type3 added to invoice");
-//        } else if(gradeContent >= 2 &&  !outterReinforcementContent) {
-//            pipeObj = new Type4(diameterContent, lengthContent, gradeContent, 
-//                chemResistContent, colour1Content, colour2Content, 
-//                innerInsulationContent);
-//            pipeObj.quantity = quantityContent;
-//            pipeObj.getPipeType();
-//            pipeObj.totalCost();
-//            order.add(pipeObj);
-//            clearContent();
-//            completeOrderButton.setEnabled(true);
-//            System.out.println("Type4 added to invoice");
-//        } else if(gradeContent >= 2 && innerInsulationContent && outterReinforcementContent){
-//            pipeObj = new Type5(diameterContent, lengthContent, gradeContent, 
-//                chemResistContent, colour1Content, colour2Content, 
-//                innerInsulationContent, outterReinforcementContent);
-//            pipeObj.quantity = quantityContent;
-//            pipeObj.getPipeType();
-//            pipeObj.totalCost();
-//            order.add(pipeObj);
-//            clearContent();
-//            completeOrderButton.setEnabled(true);
-//            System.out.println("Type5 added to invoice");
-//        } else {
-//            //add error handling try catch
-//                if (gradeContent == 1){
-//                JOptionPane.showMessageDialog(null,
-//                "sorry that kind of pipe needs a higher quality grade of plastic.",
-//                "Bad Grade ",
-//                JOptionPane.ERROR_MESSAGE);
-//            System.out.println("ERROR ERROR ERROR >:(");
-//                }
-//        }
