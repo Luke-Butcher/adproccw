@@ -310,7 +310,7 @@ public class UserInterface extends javax.swing.JFrame {
                     "Bad input ",
                     JOptionPane.ERROR_MESSAGE);
         }
-        enableAddToBasketButton();
+        AddToBasketButtonOnOff();
     }//GEN-LAST:event_diameterTextFieldActionPerformed
 
     private void pGradeComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pGradeComboBoxActionPerformed
@@ -323,7 +323,7 @@ public class UserInterface extends javax.swing.JFrame {
             tempGradeContent = (String) pGradeComboBox.getSelectedItem();
         }
         gradeContent = Integer.parseInt(tempGradeContent);
-        enableAddToBasketButton();
+        AddToBasketButtonOnOff();
     }//GEN-LAST:event_pGradeComboBoxActionPerformed
 
     private void insulationComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_insulationComboBoxActionPerformed
@@ -335,7 +335,7 @@ public class UserInterface extends javax.swing.JFrame {
             insulationLabel.setText("Insulation: ✓");
 
         }
-        enableAddToBasketButton();
+        AddToBasketButtonOnOff();
     }//GEN-LAST:event_insulationComboBoxActionPerformed
 
     private void colour2ComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_colour2ComboBoxActionPerformed
@@ -346,18 +346,18 @@ public class UserInterface extends javax.swing.JFrame {
             colour2Label.setText("Colour 2: ✓");
         }
         colour2Content = (String) colour2ComboBox.getSelectedItem();
-        enableAddToBasketButton();
+        AddToBasketButtonOnOff();
     }//GEN-LAST:event_colour2ComboBoxActionPerformed
 
     private void reinforcementComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_reinforcementComboBoxActionPerformed
-        if (reinforcementComboBox.getSelectedItem() == "No:") {
+        if (reinforcementComboBox.getSelectedItem() == "No") {
             outterReinforcementContent = false;
             reinforcementLabel.setText("Reinforcement: ");
         } else if (reinforcementComboBox.getSelectedItem() == "Yes") {
             outterReinforcementContent = true;
             reinforcementLabel.setText("Reinforcement: ✓");
         }
-        enableAddToBasketButton();
+        AddToBasketButtonOnOff();
     }//GEN-LAST:event_reinforcementComboBoxActionPerformed
 
     private void quantityTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_quantityTextFieldActionPerformed
@@ -384,7 +384,7 @@ public class UserInterface extends javax.swing.JFrame {
                     "Bad input ",
                     JOptionPane.ERROR_MESSAGE);
         }
-        enableAddToBasketButton();
+        AddToBasketButtonOnOff();
     }//GEN-LAST:event_quantityTextFieldActionPerformed
 
     private void lengthTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_lengthTextFieldActionPerformed
@@ -412,7 +412,7 @@ public class UserInterface extends javax.swing.JFrame {
                     "Bad input ",
                     JOptionPane.ERROR_MESSAGE);
         }
-        enableAddToBasketButton();
+        AddToBasketButtonOnOff();
     }//GEN-LAST:event_lengthTextFieldActionPerformed
 
     private void completeOrderButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_completeOrderButtonActionPerformed
@@ -449,14 +449,14 @@ public class UserInterface extends javax.swing.JFrame {
     }//GEN-LAST:event_cancelOrderButtonActionPerformed
 
     private void resistanceComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_resistanceComboBoxActionPerformed
-        if (resistanceComboBox.getSelectedItem() == "No:") {
+        if (resistanceComboBox.getSelectedItem() == "No") {
             chemResistContent = false;
             resistanceLabel.setText("Chemical Resistance: ");
         } else if (resistanceComboBox.getSelectedItem() == "Yes") {
             chemResistContent = true;
             resistanceLabel.setText("Chemical Resistance: ✓");
         }
-        enableAddToBasketButton();
+        AddToBasketButtonOnOff();
     }//GEN-LAST:event_resistanceComboBoxActionPerformed
 
     private void colour1ComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_colour1ComboBoxActionPerformed
@@ -467,10 +467,11 @@ public class UserInterface extends javax.swing.JFrame {
             colour1Label.setText("Colour 1: ✓");
         }
         colour1Content = (String) colour1ComboBox.getSelectedItem();
-        enableAddToBasketButton();
+        AddToBasketButtonOnOff();
     }//GEN-LAST:event_colour1ComboBoxActionPerformed
 
     private void addToBasketButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addToBasketButtonActionPerformed
+        Boolean goodPipe = true;
         Pipe pipeObj;
         if (gradeContent >= 1 && gradeContent <= 3 && colour1Content.equals("None")
                 && colour2Content.equals("None") && !innerInsulationContent
@@ -480,13 +481,6 @@ public class UserInterface extends javax.swing.JFrame {
             //testing
             System.out.println("Type1 added to invoice");
 
-            //repeated code
-            pipeObj.quantity = quantityContent;
-            pipeObj.getPipeType();
-            pipeObj.totalCost();
-            order.add(pipeObj);
-            clearContent();
-            completeOrderButton.setEnabled(true);
         } else if (gradeContent >= 2 && gradeContent <= 4 && !colour1Content.equals("None")
                 && colour2Content.equals("None") && !innerInsulationContent
                 && !outterReinforcementContent) {
@@ -495,13 +489,6 @@ public class UserInterface extends javax.swing.JFrame {
             //testing
             System.out.println("Type2 added to invoice");
 
-            //repeated code
-            pipeObj.quantity = quantityContent;
-            pipeObj.getPipeType();
-            pipeObj.totalCost();
-            order.add(pipeObj);
-            clearContent();
-            completeOrderButton.setEnabled(true);
         } else if (gradeContent >= 2 && gradeContent <= 5 && !colour1Content.equals("None")
                 && !colour2Content.equals("None")
                 && !outterReinforcementContent) {
@@ -516,21 +503,24 @@ public class UserInterface extends javax.swing.JFrame {
                 //testing
                 System.out.println("Type4 added to invoice");
             }
-            //repeated code
-            pipeObj.quantity = quantityContent;
-            pipeObj.getPipeType();
-            pipeObj.totalCost();
-            order.add(pipeObj);
-            clearContent();
-            completeOrderButton.setEnabled(true);
-        } else if (gradeContent >= 3 && gradeContent <= 5 && colour1Content.equals("None")
-                && colour2Content.equals("None") && innerInsulationContent
+        } else if (gradeContent >= 3 && gradeContent <= 5 && !colour1Content.equals("None")
+                && !colour2Content.equals("None") && innerInsulationContent
                 && outterReinforcementContent) {
             pipeObj = new Type5(diameterContent, lengthContent,
                     gradeContent, chemResistContent, colour1Content, colour2Content, outterReinforcementContent, innerInsulationContent);
             //testing
             System.out.println("Type5 added to invoice");
 
+        } else {
+            // the error catching here
+            System.out.println("error");
+            goodPipe = false;
+            pipeObj = new Type5(diameterContent, lengthContent,
+                    gradeContent, chemResistContent, colour1Content, colour2Content, outterReinforcementContent, innerInsulationContent);
+            typeErrorFinder(pipeObj);
+
+        }
+        if (goodPipe) {
             //repeated code
             pipeObj.quantity = quantityContent;
             pipeObj.getPipeType();
@@ -538,8 +528,7 @@ public class UserInterface extends javax.swing.JFrame {
             order.add(pipeObj);
             clearContent();
             completeOrderButton.setEnabled(true);
-        }else{
-// the error catching here
+            AddToBasketButtonOnOff();
         }
 
     }//GEN-LAST:event_addToBasketButtonActionPerformed
@@ -571,7 +560,61 @@ public class UserInterface extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> resistanceComboBox;
     private javax.swing.JLabel resistanceLabel;
     // End of variables declaration//GEN-END:variables
-    public void enableAddToBasketButton() {
+    public void typeErrorFinder(Pipe pipeObj) {
+        if (pipeObj.getGrade() == 4 || pipeObj.getGrade() == 5 && colour1Content.equals("None")
+                && colour2Content.equals("None") && !innerInsulationContent
+                && !outterReinforcementContent) {
+            JOptionPane.showMessageDialog(null,
+                    "The options you selected do not come with that grade of plastic please select between grade 1 - 3",
+                    "Bad grade ",
+                    JOptionPane.WARNING_MESSAGE);
+        } else if (pipeObj.getGrade() == 1 && (!colour1Content.equals("None")
+                || !colour2Content.equals("None") || innerInsulationContent
+                || outterReinforcementContent)) {
+            JOptionPane.showMessageDialog(null,
+                    "The options you selected do not come with that grade of plastic please select  grade greater than 1",
+                    "Bad grade ",
+                    JOptionPane.WARNING_MESSAGE);
+        } else if (pipeObj.getGrade() == 5 && !colour1Content.equals("None")
+                && colour2Content.equals("None") && !innerInsulationContent && !outterReinforcementContent) {
+            JOptionPane.showMessageDialog(null,
+                    "The options you selected do not come with that grade of plastic please select between grade 2 - 4",
+                    "Bad grade ",
+                    JOptionPane.WARNING_MESSAGE);
+        } else if (pipeObj.getGrade() == 1 || pipeObj.getGrade() == 2 && outterReinforcementContent) {
+            JOptionPane.showMessageDialog(null,
+                    "The options you selected do not come with that grade of plastic please select between grade 3 - 5",
+                    "Bad grade ",
+                    JOptionPane.WARNING_MESSAGE);
+        } else if (colour1Content.equals("None")) {
+            JOptionPane.showMessageDialog(null,
+                    "Please select the 1st coulour  ",
+                    "Bad colour ",
+                    JOptionPane.WARNING_MESSAGE);
+
+        } else if (colour1Content.equals(
+                "None") && !colour2Content.equals("None")) {
+            JOptionPane.showMessageDialog(null,
+                    "Please select the 1st coulour  ",
+                    "Bad colour ",
+                    JOptionPane.WARNING_MESSAGE);
+        } else if (colour2Content.equals(
+                "None") && (innerInsulationContent || outterReinforcementContent)) {
+            JOptionPane.showMessageDialog(null,
+                    "The options you selected need coloured pipes please select colour 1 and 2 ",
+                    "Bad colour ",
+                    JOptionPane.WARNING_MESSAGE);
+        } else if (!innerInsulationContent && outterReinforcementContent) {
+            JOptionPane.showMessageDialog(null,
+                    "Outer reinforcements needs inner insulation please select this",
+                    "Bad pipe ",
+                    JOptionPane.WARNING_MESSAGE);
+        } else {
+            System.out.println("how did i get here?");
+        }
+    }
+
+    public void AddToBasketButtonOnOff() {
         if (diameterContent != 0 && lengthContent != 0
                 && gradeContent != 0 && quantityContent != 0) {
             addToBasketButton.setEnabled(true);
