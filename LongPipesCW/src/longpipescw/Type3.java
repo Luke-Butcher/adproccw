@@ -13,34 +13,36 @@ public class Type3 extends Pipe {
     private String colour1;
     private String colour2;
     public Type3(double lengthOfPipe, double diameterOfPipe, int grade, Boolean chemResist, String colour1, String colour2){
+        //Obtain super class' information if Type3 is chosen
         super(lengthOfPipe, diameterOfPipe, grade, chemResist);
         super.pipeDetails();
         this.colour1 = colour1;
         this.colour2 = colour2;
+        //add on another additional cost to the previously assigned additional cost
         super.additionalCost += baseCost * 0.16;
     }
-    public void setColour1(String colour1)
-    {
+    //setter and getter for colour1
+    public void setColour1(String colour1){
         this.colour1 = colour1;
     }
 
-    public String getColour1()
-    {
+    public String getColour1(){
         return colour1;
     }
-    
-    public void setColour2(String colour2)
-    {
+    //setter and getter for colour2
+    public void setColour2(String colour2){
         this.colour2 = colour2;
     }
 
-    public String getColour2()
-    {
+    public String getColour2(){
         return colour2;
     }
     
+    //pipe details gets all the details from the super class and then adds our 
+    //additional parameter of colour1
     public String pipeDetails(){
         super.pipeDetails += "Colour 1: " + colour1 + "\nColour 2: "+ colour2 + "\n";
+        //returns our new varibale content back to the super class
         return super.pipeDetails;
     }
 }

@@ -11,7 +11,7 @@ import java.util.*;
  * @author conorfarrell
  */
 public class UserInterfaceContent extends UserInterface {
-    //setter and getter for costPerQubicInch
+    //Getters for all variables in YserInterface class
    
     public ArrayList getOrderDetails(){
         return order;

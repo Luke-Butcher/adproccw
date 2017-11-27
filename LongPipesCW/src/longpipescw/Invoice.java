@@ -14,9 +14,14 @@ public class Invoice extends javax.swing.JFrame {
     /**
      * Creates new form Invoice
      */
+    
+    //passing through our objects
     public Invoice(ArrayList order) {
         initComponents();
+        //call the populate method as soon as the frame has been opened
         populate(order);
+        
+        //disallow users from resizing the window
         setResizable(false);
     }
 
@@ -78,22 +83,38 @@ public class Invoice extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel overallCostText;
     // End of variables declaration//GEN-END:variables
+    
+    //populate method passes the array list so we can access the objects 
+    //information
     public void populate(ArrayList <Pipe>order){
+        //style the title of the invoice
         invoiceTitle.setFont(invoiceTitle.getFont().deriveFont(18f));
         invoiceTitle.setHorizontalAlignment(invoiceTitle.CENTER);
+        
+        //dissalow the textbox to be edited
         invoiceOrderText.setEditable(false);
-        double overallCost = 0; // move this to the constructor 
+        
+        //intatiate order overall cost
+        double overallCost = 0;
         invoiceOrderText.setText("Order Breakdown\n\n");
         for(int i = 0; i < order.size(); i++){
+           //add the total cost to the overall cost so a final value can be outputted 
            overallCost += order.get(i).totalCost();
+           
+           //add all the order details
            invoiceOrderText.setText(invoiceOrderText.getText() + "Order #" + (i+1) + "\n");
            invoiceOrderText.setText(invoiceOrderText.getText() + order.get(i).pipeDetails());
            invoiceOrderText.setText(invoiceOrderText.getText() + "Quantity: " + (int)order.get(i).getQuantity() + "\n");
            invoiceOrderText.setText(invoiceOrderText.getText() + "Total cost: £" + order.get(i).totalCost() + "\n");
            invoiceOrderText.setText(invoiceOrderText.getText() + "\n");
         }
+        
+        //round the overall cost to two decimal places
         overallCost = (double) Math.round(overallCost * 100) / 100;
+        //set the text in the pop up
         overallCostText.setText("Overall cost: £" + overallCost + "\n");
+        
+        //style the overall cost in the invoice
         overallCostText.setFont(overallCostText.getFont().deriveFont(18f));
         overallCostText.setHorizontalAlignment(overallCostText.CENTER);
         

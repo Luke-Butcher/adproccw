@@ -14,6 +14,7 @@ import javax.swing.*;
  * @author conorfarrell
  */
 public class UserInterface extends javax.swing.JFrame {
+    //initialise all variables used before the interface is interacted with
     protected ArrayList<Object> order = new ArrayList<Object>();
     protected double diameterContent = 0;
     protected double lengthContent = 0;
@@ -30,9 +31,8 @@ public class UserInterface extends javax.swing.JFrame {
      */
     public UserInterface() {
         initComponents();
-        //DISABLE action buttons and window resize
+        //Disable action buttons (complete order and add to basket) and window resize
         setResizable(false);
-        //actionMethod();
         completeOrderButton.setEnabled(false);
         addToBasketButton.setEnabled(false);
     }
@@ -280,14 +280,19 @@ public class UserInterface extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void diameterTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_diameterTextFieldActionPerformed
+        //if interacted with and does not equal and empty string add a tick
+        //this shows the user that what they have entered is correct
         if(!diameterTextField.getText().equals("")){
             diameterLabel.setText("Diameter (Inches): ✓");
         } else{
             diameterLabel.setText("Diameter (Inches): ");
         }
-       
+        
+        //try catch method to check if the input is numbers
         try {
+            //convert our string to a double
             diameterContent = Double.parseDouble(diameterTextField.getText());
+            //if outside of our scope then display another error message
             if (diameterContent < 0.2 || diameterContent >6){
                 JOptionPane.showMessageDialog(null,
                 "Oders must be of atleast 0.2' pipe and less than 6'",
@@ -301,45 +306,61 @@ public class UserInterface extends javax.swing.JFrame {
                 "Bad input ",
                 JOptionPane.ERROR_MESSAGE);
         }
+        //Complete order and add to basket are not activated or visible unless
+        //all the specified statments are true in the enableDisable method below
         enableDisable();
     }//GEN-LAST:event_diameterTextFieldActionPerformed
 
     private void pGradeComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pGradeComboBoxActionPerformed
-        String tempGradeContent ;
+        String tempGradeContent;
+        //if the selected item equals "None" the set the varaibles back to their 
+        //initial state. Note: the user will be unable to proceed unless they have
+        //entered a grade
         if(pGradeComboBox.getSelectedItem().equals("None")){
             tempGradeContent = "0";
             pGradeLabel.setText("Plastic grade: ");
         } else{
             pGradeLabel.setText("Plastic grade: ✓");
-             tempGradeContent = (String)pGradeComboBox.getSelectedItem();
+            //get our selected item from our combo box and convert to a string
+            tempGradeContent = (String)pGradeComboBox.getSelectedItem();
         }
+        //convert our string to a double
         gradeContent = Integer.parseInt(tempGradeContent);
+        
+        //Complete order and add to basket are not activated or visible unless
+        //all the specified statments are true in the enableDisable method below
         enableDisable();
     }//GEN-LAST:event_pGradeComboBoxActionPerformed
 
     private void insulationComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_insulationComboBoxActionPerformed
+        //if the selected item equals "No" the set the varaibles back to their 
+        //initial state.
         if(insulationComboBox.getSelectedItem() == "No"){
             innerInsulationContent = false;
             insulationLabel.setText("Insulation: ");
         } else if(insulationComboBox.getSelectedItem() == "Yes"){
-             innerInsulationContent = true;
-            insulationLabel.setText("Insulation: ✓");
-                  
+            innerInsulationContent = true;
+            insulationLabel.setText("Insulation: ✓");   
         }
     }//GEN-LAST:event_insulationComboBoxActionPerformed
 
     private void colour2ComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_colour2ComboBoxActionPerformed
+        //if the selected item equals "None" the set the varaibles back to their 
+        //initial state.
         if(colour2ComboBox.getSelectedItem() == "None"){
             colour2Content = "None";
             colour2Label.setText("Colour 2: ");
         } else{
             colour2Label.setText("Colour 2: ✓");
         }
+        //get our selected item from our combo box and convert to a string
         colour2Content = (String)colour2ComboBox.getSelectedItem();
     }//GEN-LAST:event_colour2ComboBoxActionPerformed
 
     private void reinforcementComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_reinforcementComboBoxActionPerformed
-        if(reinforcementComboBox.getSelectedItem() == "No:"){
+        //if the selected item equals "No" the set the varaibles back to their 
+        //initial state.
+        if(reinforcementComboBox.getSelectedItem() == "No"){
             outerReinforcementContent = false;
             reinforcementLabel.setText("Reinforcement: ");
         } else if(reinforcementComboBox.getSelectedItem() == "Yes"){
@@ -349,16 +370,20 @@ public class UserInterface extends javax.swing.JFrame {
     }//GEN-LAST:event_reinforcementComboBoxActionPerformed
 
     private void quantityTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_quantityTextFieldActionPerformed
+        //if the text field is empty the user will not be notified that they information
+        //has been saved with the tick
         if(!quantityTextField.getText().equals("")){
             quantityLabel.setText("Quantity: ✓");
         } else{
             quantityLabel.setText("Quantity: ");
         }
         
+        //try catch method to check if the input is numbers
         try{
+            //convert our quantity to an integer
             quantityContent = Integer.parseInt(quantityTextField.getText());
-            //validation
-            if (quantityContent < 1 || quantityContent >100){
+            //ensuring that the quantity is no less than 1 and no more than 100
+            if (quantityContent < 1 || quantityContent > 100){
                 JOptionPane.showMessageDialog(null,
                 "Oders must be of atleast 1 pipe and less than 100",
                 "Bad Quantity ",
@@ -371,19 +396,27 @@ public class UserInterface extends javax.swing.JFrame {
                 "Bad input ",
                 JOptionPane.ERROR_MESSAGE);
         }
+        
+        //Complete order and add to basket are not activated or visible unless
+        //all the specified statments are true in the enableDisable method below
         enableDisable();
     }//GEN-LAST:event_quantityTextFieldActionPerformed
 
     private void lengthTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_lengthTextFieldActionPerformed
+        //if the text field is empty the user will not be notified that they information
+        //has been saved with the tick
         if(!lengthTextField.getText().equals("")){
             lengthLabel.setText("Length (Meters): ✓");
         } else {
             lengthLabel.setText("Length (Meters): ");
         }
+        
+        //try catch method to check if the input is numbers
         try{
+            //converting our string to a double
             lengthContent = Double.parseDouble(lengthTextField.getText());
-            //validation
-            if (lengthContent < 0.1 || lengthContent >6.0){
+            //ensuring that the length is not less than 0.1 and not greater than 6
+            if (lengthContent < 0.1 || lengthContent > 6.0){
             JOptionPane.showMessageDialog(null,
             "pipes must be longer than 10cm and shorter than 6m",
             "Bad pipe length ",
@@ -396,6 +429,9 @@ public class UserInterface extends javax.swing.JFrame {
                 "Bad input ",
                 JOptionPane.ERROR_MESSAGE);
         }
+        
+        //Complete order and add to basket are not activated or visible unless
+        //all the specified statments are true in the enableDisable method below
         enableDisable();
     }//GEN-LAST:event_lengthTextFieldActionPerformed
 
@@ -423,38 +459,49 @@ public class UserInterface extends javax.swing.JFrame {
         }
         //</editor-fold>
 
-        /* Create and display the form */
+        //display the invoice pop up if the user clicks complete order.
+        //the order ArrayList is passed so that this class is now able to access
+        //the object set in this class
         new Invoice(order).setVisible(true);
     }//GEN-LAST:event_completeOrderButtonActionPerformed
 
     private void cancelOrderButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelOrderButtonActionPerformed
-        //exit the window
+        //exit the window if a user presses cancel
         System.exit(0);
     }//GEN-LAST:event_cancelOrderButtonActionPerformed
 
     private void resistanceComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_resistanceComboBoxActionPerformed
-        enableDisable();
-        if(resistanceComboBox.getSelectedItem() == "No:"){
+        //if the selected item equals "No" the set the varaibles back to their 
+        //initial state.
+        if(resistanceComboBox.getSelectedItem() == "No"){
             chemResistContent = false;
             resistanceLabel.setText("Chemical Resistance: ");
         } else if(resistanceComboBox.getSelectedItem() == "Yes"){
              chemResistContent = true;
             resistanceLabel.setText("Chemical Resistance: ✓");
         }
+        
+        //Complete order and add to basket are not activated or visible unless
+        //all the specified statments are true in the enableDisable method below
+        enableDisable();
     }//GEN-LAST:event_resistanceComboBoxActionPerformed
 
     private void colour1ComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_colour1ComboBoxActionPerformed
+        //if the selected item equals "None" the set the varaibles back to their 
+        //initial state.
         if(colour1ComboBox.getSelectedItem() == "None"){
             colour1Content = "None";
             colour1Label.setText("Colour 1: ");
         } else{
             colour1Label.setText("Colour 1: ✓");
         }
+        
+        //convert our selected item to a string
         colour1Content = (String)colour1ComboBox.getSelectedItem();
     }//GEN-LAST:event_colour1ComboBoxActionPerformed
       
     private void addToBasketButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addToBasketButtonActionPerformed
-        //I do not like having all those repeating variables v v ugly (but works)
+        //THIS IS BEING WORKED ON -- no comments to be applied until compelete
         Pipe pipeObj;
         if(gradeContent >= 1 &&  gradeContent <= 3 && colour1Content.equals("None")  && colour2Content.equals("None") && !innerInsulationContent && !outerReinforcementContent){
             pipeObj = new Type1(diameterContent, lengthContent, gradeContent, 
@@ -542,7 +589,12 @@ public class UserInterface extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> resistanceComboBox;
     private javax.swing.JLabel resistanceLabel;
     // End of variables declaration//GEN-END:variables
+    
+    //Enable and disbale functionality for our action buttons for adding an order
+    //to the basket or compeleting an order
     public void enableDisable(){
+        //if all these staments are at their base case then it will never enable
+        //the add to basket button
         if(diameterContent != 0 && lengthContent != 0
                 && gradeContent != 0 && chemResistContent != false
                 && quantityContent != 0){
@@ -551,7 +603,13 @@ public class UserInterface extends javax.swing.JFrame {
             addToBasketButton.setEnabled(false);
         }
     }
+    
+    //Clear content fucntionality sets all items to their initial states
+    //Quantity and chem resist are not reset because they are going to always 
+    //be added to or kept the same. Note: this is done to let a user understand
+    // their order has been added
     public void clearContent(){
+        //resetting all fields and variables
         diameterTextField.setText("");
         diameterLabel.setText("Diameter (Inches): ");
         lengthTextField.setText("");
