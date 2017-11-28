@@ -27,7 +27,7 @@ abstract public class Pipe {
     
     
     //super class with parameters that each sub class all have in common
-    public Pipe(double lengthOfPipe, double diameterOfPipe, int grade, Boolean chemResist){
+    public Pipe(double diameterOfPipe, double lengthOfPipe, int grade, Boolean chemResist){
         this.grade = grade;
         this.lengthOfPipe = lengthOfPipe;
         this.diameterOfPipe = diameterOfPipe;

@@ -100,7 +100,7 @@ public class Invoice extends javax.swing.JFrame {
         for(int i = 0; i < order.size(); i++){
            //add the total cost to the overall cost so a final value can be outputted 
            overallCost += order.get(i).totalCost();
-           
+            System.out.println(order.get(i).pipeDetails());
            //add all the order details
            invoiceOrderText.setText(invoiceOrderText.getText() + "Order #" + (i+1) + "\n");
            invoiceOrderText.setText(invoiceOrderText.getText() + order.get(i).pipeDetails());
@@ -109,6 +109,7 @@ public class Invoice extends javax.swing.JFrame {
            invoiceOrderText.setText(invoiceOrderText.getText() + "\n");
         }
         
+       
         //round the overall cost to two decimal places
         overallCost = (double) Math.round(overallCost * 100) / 100;
         //set the text in the pop up

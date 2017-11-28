@@ -494,9 +494,7 @@ public class UserInterface extends javax.swing.JFrame {
         } else if (resistanceComboBox.getSelectedItem() == "Yes") {
             chemResistContent = true;
             resistanceLabel.setText("Chemical Resistance: ✓");
-            quantityTextField.requestFocus();
         }
-        
         //Complete order and add to basket are not activated or visible unless
         //all the specified statments are true in the enableDisable method below
         AddToBasketButtonOnOff();
@@ -504,6 +502,7 @@ public class UserInterface extends javax.swing.JFrame {
                                                   
 
     private void colour1ComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_colour1ComboBoxActionPerformed
+        System.out.println(diameterTextField.getText());
         if (colour1ComboBox.getSelectedItem() == "None") {
             colour1Content = "None";
             colour1Label.setText("Colour 1: ");
@@ -516,7 +515,6 @@ public class UserInterface extends javax.swing.JFrame {
     }//GEN-LAST:event_colour1ComboBoxActionPerformed
 
     private void addToBasketButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addToBasketButtonActionPerformed
-
         Boolean goodPipe = true;
         Pipe pipeObj;
         if (gradeContent >= 1 && gradeContent <= 3 && colour1Content.equals("None")
