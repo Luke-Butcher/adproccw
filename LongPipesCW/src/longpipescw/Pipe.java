@@ -22,6 +22,7 @@ abstract public class Pipe {
     protected double quantity;
     protected double costPerQubicInch;
     protected Boolean chemResist;
+    private final double[] gradeCost = {0.4, 0.6, 0.75, 0.8, 0.95};
     private DecimalFormat df = new DecimalFormat("###.##");
     
     
@@ -141,7 +142,7 @@ abstract public class Pipe {
     
     //base cost gets the volume of the pipe and times' it by the cost per qubic inch
     public double baseCost(){
-        baseCost = calculateVolumeOfPipe() * getCostPerQubicInch();
+        baseCost = calculateVolumeOfPipe() * gradeCost[grade - 1];
         return baseCost;
     }
     

@@ -5,8 +5,8 @@
  */
 package longpipescw;
 
-import java.awt.event.KeyEvent;
-import java.awt.event.FocusListener;
+//import java.awt.event.KeyEvent;
+//import java.awt.event.FocusListener;
 import java.text.DecimalFormat;
 import java.util.*;
 import javax.swing.*;
@@ -397,6 +397,7 @@ public class UserInterface extends javax.swing.JFrame {
             //validation
             if (quantityContent < 1 || quantityContent > 100) {
                 quantityTextField.setText("1");
+                quantityContent = 1;
                 JOptionPane.showMessageDialog(null,
                         "Orders must be of atleast 1 pipe and at most 100",
                         "Bad Quantity ",
