@@ -17,7 +17,7 @@ import javax.swing.*;
  */
 public class UserInterface extends javax.swing.JFrame {
     //initialise all variables used before the interface is interacted with
-    protected ArrayList<Pipe> order = new ArrayList<Pipe>();
+    private ArrayList<Pipe> order = new ArrayList<Pipe>();
     private double diameterContent = 0;
     private double lengthContent = 0;
     private int gradeContent = 0;
@@ -712,6 +712,12 @@ public class UserInterface extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null,
                     "The options you selected do not come with that grade of plastic please select between grade 3 - 5",
                     "Bad grade ",
+                    JOptionPane.WARNING_MESSAGE);
+        } else if ((colour1Content.equals("None") && colour2Content.equals(
+                "None")) && (innerInsulationContent || outerReinforcementContent)) {
+            JOptionPane.showMessageDialog(null,
+                    "The options you selected need coloured pipes please select colour 1 and 2 ",
+                    "Bad colour ",
                     JOptionPane.WARNING_MESSAGE);
         } else if (colour1Content.equals("None")) {
             JOptionPane.showMessageDialog(null,
