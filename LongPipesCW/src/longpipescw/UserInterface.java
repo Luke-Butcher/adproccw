@@ -192,7 +192,7 @@ public class UserInterface extends javax.swing.JFrame {
 
         colour1Label.setText("Colour 1:");
 
-        addToBasketButton.setText("Add To Basket");
+        addToBasketButton.setText("Add Another Order");
         addToBasketButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 addToBasketButtonActionPerformed(evt);
@@ -395,20 +395,20 @@ public class UserInterface extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Invoice.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Quote.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Invoice.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Quote.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Invoice.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Quote.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Invoice.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Quote.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
         //display the invoice pop up if the user clicks complete order.
         //the order ArrayList is passed so that this class is now able to access
         //the object set in this class
-        new Invoice(order).setVisible(true);
+        new Quote(order).setVisible(true);
     }//GEN-LAST:event_completeOrderButtonActionPerformed
 
     private void cancelOrderButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelOrderButtonActionPerformed
@@ -522,15 +522,15 @@ public class UserInterface extends javax.swing.JFrame {
             
             //lengthTextField.requestFocus();
             //if outside of our scope then display another error message
-            if (diameterContent < 0.2 || diameterContent > 6) {
+            if (diameterContent < 0.1 || diameterContent > 6) {
                 addToBasketButton.setEnabled(false);
                 diameterTextField.setText("");
                 diameterLabel.setText("Diameter (Inches): ");
                 /*JOptionPane.showMessageDialog(null,
-                    "Orders must be between 0.2' and 6'",
+                    "Orders must be between 0.1' and 6'",
                     "Bad Diameter ",
                     JOptionPane.ERROR_MESSAGE);*/
-                diameterErrorLabel.setText("Orders must be between 0.2' and 6'");
+                diameterErrorLabel.setText("Orders must be between 0.1' and 6'");
             } else {
                 //Complete order and add to basket are not activated or visible unless
                 //all the specified statments are true in the enableDisable method below
