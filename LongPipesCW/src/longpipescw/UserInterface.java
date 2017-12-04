@@ -531,6 +531,10 @@ public class UserInterface extends javax.swing.JFrame {
                     "Bad Diameter ",
                     JOptionPane.ERROR_MESSAGE);*/
                 diameterErrorLabel.setText("Orders must be between 0.2' and 6'");
+            } else {
+                //Complete order and add to basket are not activated or visible unless
+                //all the specified statments are true in the enableDisable method below
+                AddToBasketButtonOnOff();
             }
         } catch (NumberFormatException nfe) {
             addToBasketButton.setEnabled(false);
@@ -542,9 +546,6 @@ public class UserInterface extends javax.swing.JFrame {
                     JOptionPane.ERROR_MESSAGE);*/
             diameterErrorLabel.setText("Numbers only please");
         }
-        //Complete order and add to basket are not activated or visible unless
-        //all the specified statments are true in the enableDisable method below
-        AddToBasketButtonOnOff();
     }//GEN-LAST:event_diameterTextFieldFocusLost
 
     private void lengthTextFieldFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_lengthTextFieldFocusLost
@@ -570,6 +571,10 @@ public class UserInterface extends javax.swing.JFrame {
                     "Bad pipe length ",
                     JOptionPane.ERROR_MESSAGE);*/
                 lengthErrorLabel.setText("pipes must be between 10cm and 6m");
+            } else {
+                //Complete order and add to basket are not activated or visible unless
+                //all the specified statments are true in the enableDisable method below
+                AddToBasketButtonOnOff();
             }
         } catch (NumberFormatException nfe) {
             addToBasketButton.setEnabled(false);
@@ -583,7 +588,6 @@ public class UserInterface extends javax.swing.JFrame {
         }
         //Complete order and add to basket are not activated or visible unless
         //all the specified statments are true in the enableDisable method below
-        AddToBasketButtonOnOff();
     }//GEN-LAST:event_lengthTextFieldFocusLost
 
     private void quantityTextFieldFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_quantityTextFieldFocusLost
@@ -607,7 +611,7 @@ public class UserInterface extends javax.swing.JFrame {
                         "Orders must be of atleast 1 pipe and at most 100",
                         "Bad Quantity ",
                         JOptionPane.ERROR_MESSAGE);*/
-                quantityErrorLabel.setText("Orders must be between 1 pipe and 100 pipes");
+                quantityErrorLabel.setText("Orders must be between 1 and 100");
             }
         } catch (NumberFormatException nfe) {
             addToBasketButton.setEnabled(false);
@@ -618,7 +622,6 @@ public class UserInterface extends javax.swing.JFrame {
                     JOptionPane.ERROR_MESSAGE);*/
             quantityErrorLabel.setText("Numbers only please");
         }
-        
         //Complete order and add to basket are not activated or visible unless
         //all the specified statments are true in the enableDisable method below
         AddToBasketButtonOnOff();
