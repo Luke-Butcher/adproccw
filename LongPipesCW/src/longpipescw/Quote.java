@@ -1,14 +1,11 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package longpipescw;
 
 import java.util.*;
 /**
- *
- * @author conorfarrell
+ * Creates a quote that tells the user the Details and Total cost of all Pipes
+ * Ordered.
+ * @author GrD-10
+ * @version 2.0
  */
 public class Quote extends javax.swing.JFrame {
     /**
@@ -86,6 +83,10 @@ public class Quote extends javax.swing.JFrame {
     
     //populate method passes the array list so we can access the objects 
     //information
+    /**
+     * Populates the Text Area with information from Pipes.
+     * @param order List of Pipes.
+     */
     public void populate(ArrayList <Pipe>order){
         //style the title of the invoice
         quoteTitle.setFont(quoteTitle.getFont().deriveFont(18f));
