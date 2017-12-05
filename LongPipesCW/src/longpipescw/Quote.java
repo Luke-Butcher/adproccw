@@ -1,22 +1,24 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package longpipescw;
 
 import java.util.*;
 /**
- *
- * @author conorfarrell
+ * Creates a quote that tells the user the Details and Total cost of all Pipes
+ * Ordered.
+ * @author GrD-10
+ * @version 2.0
  */
-public class Invoice extends javax.swing.JFrame {
+public class Quote extends javax.swing.JFrame {
     /**
      * Creates new form Invoice
      */
-    public Invoice(ArrayList order) {
+    
+    //passing through our objects
+    public Quote(ArrayList order) {
         initComponents();
+        //call the populate method as soon as the frame has been opened
         populate(order);
+        
+        //disallow users from resizing the window
         setResizable(false);
     }
 
@@ -29,18 +31,18 @@ public class Invoice extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        invoiceTitle = new javax.swing.JLabel();
+        quoteTitle = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        invoiceOrderText = new javax.swing.JTextArea();
+        quoteOrderText = new javax.swing.JTextArea();
         overallCostText = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        invoiceTitle.setText("Invoice");
+        quoteTitle.setText("Quote");
 
-        invoiceOrderText.setColumns(20);
-        invoiceOrderText.setRows(5);
-        jScrollPane1.setViewportView(invoiceOrderText);
+        quoteOrderText.setColumns(20);
+        quoteOrderText.setRows(5);
+        jScrollPane1.setViewportView(quoteOrderText);
 
         overallCostText.setText("Overall Cost: £0.00");
 
@@ -53,14 +55,14 @@ public class Invoice extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 390, Short.MAX_VALUE)
                     .addComponent(overallCostText, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(invoiceTitle, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(quoteTitle, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap(23, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(16, 16, 16)
-                .addComponent(invoiceTitle)
+                .addComponent(quoteTitle)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 354, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -73,27 +75,47 @@ public class Invoice extends javax.swing.JFrame {
     
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JTextArea invoiceOrderText;
-    private javax.swing.JLabel invoiceTitle;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel overallCostText;
+    private javax.swing.JTextArea quoteOrderText;
+    private javax.swing.JLabel quoteTitle;
     // End of variables declaration//GEN-END:variables
+    
+    //populate method passes the array list so we can access the objects 
+    //information
+    /**
+     * Populates the Text Area with information from Pipes.
+     * @param order List of Pipes.
+     */
     public void populate(ArrayList <Pipe>order){
-        invoiceTitle.setFont(invoiceTitle.getFont().deriveFont(18f));
-        invoiceTitle.setHorizontalAlignment(invoiceTitle.CENTER);
-        invoiceOrderText.setEditable(false);
-        double overallCost = 0; // move this to the constructor 
-        invoiceOrderText.setText("Order Breakdown\n\n");
+        //style the title of the invoice
+        quoteTitle.setFont(quoteTitle.getFont().deriveFont(18f));
+        quoteTitle.setHorizontalAlignment(quoteTitle.CENTER);
+        
+        //dissalow the textbox to be edited
+        quoteOrderText.setEditable(false);
+        
+        //intatiate order overall cost
+        double overallCost = 0;
+        quoteOrderText.setText("Order Breakdown\n\n");
         for(int i = 0; i < order.size(); i++){
+           //add the total cost to the overall cost so a final value can be outputted 
            overallCost += order.get(i).totalCost();
-           invoiceOrderText.setText(invoiceOrderText.getText() + "Order #" + (i+1) + "\n");
-           invoiceOrderText.setText(invoiceOrderText.getText() + order.get(i).pipeDetails());
-           invoiceOrderText.setText(invoiceOrderText.getText() + "Quantity: " + (int)order.get(i).getQuantity() + "\n");
-           invoiceOrderText.setText(invoiceOrderText.getText() + "Total cost: £" + order.get(i).totalCost() + "\n");
-           invoiceOrderText.setText(invoiceOrderText.getText() + "\n");
+           
+           //add all the order details
+           quoteOrderText.setText(quoteOrderText.getText() + "Order #" + (i+1) + "\n");
+           quoteOrderText.setText(quoteOrderText.getText() + order.get(i).getPipeDetails());
+           quoteOrderText.setText(quoteOrderText.getText() + "Quantity: " + (int)order.get(i).getQuantity() + "\n");
+           quoteOrderText.setText(quoteOrderText.getText() + "Total cost: £" + order.get(i).totalCost() + "\n");
+           quoteOrderText.setText(quoteOrderText.getText() + "\n");
         }
+        
+        //round the overall cost to two decimal places
         overallCost = (double) Math.round(overallCost * 100) / 100;
+        //set the text in the pop up
         overallCostText.setText("Overall cost: £" + overallCost + "\n");
+        
+        //style the overall cost in the invoice
         overallCostText.setFont(overallCostText.getFont().deriveFont(18f));
         overallCostText.setHorizontalAlignment(overallCostText.CENTER);
         

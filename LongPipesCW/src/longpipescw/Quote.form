@@ -28,7 +28,7 @@
               <Group type="103" groupAlignment="0" max="-2" attributes="0">
                   <Component id="jScrollPane1" pref="390" max="32767" attributes="0"/>
                   <Component id="overallCostText" alignment="0" max="32767" attributes="0"/>
-                  <Component id="invoiceTitle" max="32767" attributes="0"/>
+                  <Component id="quoteTitle" max="32767" attributes="0"/>
               </Group>
               <EmptySpace pref="23" max="32767" attributes="0"/>
           </Group>
@@ -38,7 +38,7 @@
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace min="-2" pref="16" max="-2" attributes="0"/>
-              <Component id="invoiceTitle" min="-2" max="-2" attributes="0"/>
+              <Component id="quoteTitle" min="-2" max="-2" attributes="0"/>
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
               <Component id="jScrollPane1" min="-2" pref="354" max="-2" attributes="0"/>
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
@@ -49,9 +49,9 @@
     </DimensionLayout>
   </Layout>
   <SubComponents>
-    <Component class="javax.swing.JLabel" name="invoiceTitle">
+    <Component class="javax.swing.JLabel" name="quoteTitle">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Invoice"/>
+        <Property name="text" type="java.lang.String" value="Quote"/>
       </Properties>
     </Component>
     <Container class="javax.swing.JScrollPane" name="jScrollPane1">
@@ -61,7 +61,7 @@
 
       <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
       <SubComponents>
-        <Component class="javax.swing.JTextArea" name="invoiceOrderText">
+        <Component class="javax.swing.JTextArea" name="quoteOrderText">
           <Properties>
             <Property name="columns" type="int" value="20"/>
             <Property name="rows" type="int" value="5"/>
