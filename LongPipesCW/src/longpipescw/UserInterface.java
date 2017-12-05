@@ -531,6 +531,7 @@ public class UserInterface extends javax.swing.JFrame {
                     "Bad Diameter ",
                     JOptionPane.ERROR_MESSAGE);*/
                 diameterErrorLabel.setText("Orders must be between 0.2' and 6'");
+                diameterContent = 0;
             } else {
                 //Complete order and add to basket are not activated or visible unless
                 //all the specified statments are true in the enableDisable method below
@@ -571,6 +572,7 @@ public class UserInterface extends javax.swing.JFrame {
                     "Bad pipe length ",
                     JOptionPane.ERROR_MESSAGE);*/
                 lengthErrorLabel.setText("pipes must be between 10cm and 6m");
+                lengthContent = 0;
             } else {
                 //Complete order and add to basket are not activated or visible unless
                 //all the specified statments are true in the enableDisable method below
