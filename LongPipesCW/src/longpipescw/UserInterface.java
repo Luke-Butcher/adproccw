@@ -530,12 +530,8 @@ public class UserInterface extends javax.swing.JFrame {
                     "Orders must be between 0.1' and 6'",
                     "Bad Diameter ",
                     JOptionPane.ERROR_MESSAGE);*/
-<<<<<<< HEAD
                 diameterErrorLabel.setText("Orders must be between 0.2' and 6'");
                 diameterContent = 0;
-=======
-                diameterErrorLabel.setText("Orders must be between 0.1' and 6'");
->>>>>>> 2f95823463845f983ed7c54fdef4d511c5a4498d
             } else {
                 //Complete order and add to basket are not activated or visible unless
                 //all the specified statments are true in the enableDisable method below
