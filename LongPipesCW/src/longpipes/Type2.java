@@ -17,7 +17,7 @@ public class Type2 extends Pipe {
      * @param quantity How many Pipes are being ordered.
      */
     public Type2(double diameterOfPipe, double lengthOfPipe, int grade, Boolean chemResist, String colour1, int quantity){
-        super(lengthOfPipe, diameterOfPipe, grade, chemResist, quantity);
+        super(diameterOfPipe, lengthOfPipe, grade, chemResist, quantity);
         this.colour1 = colour1;
         addAdditionalCost(oneColourCost);
     }    

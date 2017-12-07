@@ -18,11 +18,8 @@ public class Type5 extends Type4 {
      * @param quantity How many similar Pipes are being ordered.
      */
     public Type5(double diameterOfPipe, double lengthOfPipe, int grade, Boolean chemResist, String colour1, String colour2, int quantity){
-        //Obtain super class' information if Type5 is chosen
-        super(lengthOfPipe, diameterOfPipe, grade, chemResist, colour1, colour2, quantity);
-        //super.pipeDetails();
+        super(diameterOfPipe, lengthOfPipe, grade, chemResist, colour1, colour2, quantity);
         this.outerReinforcement = true;
-        //add on another additional cost to the previously assigned additional cost
         addAdditionalCost(outerReinforcementCost);
     }
     /**

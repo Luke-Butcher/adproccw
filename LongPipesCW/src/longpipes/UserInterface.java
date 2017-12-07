@@ -26,7 +26,9 @@ public class UserInterface extends javax.swing.JFrame {
     private final DecimalFormat df = new DecimalFormat("###.##");
 
     /**
-     * Creates input Form.
+     * Constructor for the UserInterface this creates the input form, sets it 
+     * to the middle of the screen, disables the ability to resize it and 
+     * disables the two CTA buttons on the form
      */
     public UserInterface() {
         initComponents();
@@ -35,7 +37,6 @@ public class UserInterface extends javax.swing.JFrame {
         completeOrderButton.setEnabled(false);
         addToBasketButton.setEnabled(false);
     }
-
     /**
      * This method is called from within the constructor to initialise the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -417,10 +418,6 @@ public class UserInterface extends javax.swing.JFrame {
             java.util.logging.Logger.getLogger(Quote.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
-
-        //display the invoice pop up if the user clicks complete order.
-        //the order ArrayList is passed so that this class is now able to access
-        //the object set in this class
         new Quote(quotedPipes).setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_completeOrderButtonActionPerformed
@@ -754,13 +751,8 @@ public class UserInterface extends javax.swing.JFrame {
             addToBasketButton.setEnabled(false);
         }
     }
-//******************REDO THE COMMENTS HERE*********************
-
     /**
      * Clear content functionality sets all items to their initial states
-     * Quantity and chemResist are not reset because they are going to always be
-     * added to or kept the same. Note: this is done to let a user understand
-     * their order has been added
      */
     public void clearContent(){    
         quantityContent = 1;
